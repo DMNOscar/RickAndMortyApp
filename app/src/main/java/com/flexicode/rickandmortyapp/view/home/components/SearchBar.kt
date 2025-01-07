@@ -50,7 +50,7 @@ fun SearchBarApp(onSearch: (String) -> Unit) {
                 query = it
                 onSearch(query)
             },
-            placeholder = { Text(text = "Buscar personaje...") },
+            placeholder = { Text(text = "Search character...") },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Buscar") },
             trailingIcon = {
                 if (query.isNotEmpty()) {

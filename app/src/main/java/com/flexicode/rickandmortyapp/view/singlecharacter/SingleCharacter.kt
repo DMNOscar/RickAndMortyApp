@@ -106,7 +106,7 @@ fun ContentSingleCharacter(homeViewModel: HomeViewModel) {
                     LazyRow {
                         itemsIndexed(character.episode){ index, episode ->
 
-                            EpisodeCard(index = index.toString())
+                            EpisodeCard(index = (index + 1).toString())
 
                         }
 
