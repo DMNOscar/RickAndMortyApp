@@ -25,7 +25,7 @@ Una aplicación desarrollada en Kotlin que lista a los personajes de la popular 
 ## Capturas de Pantalla
 
 ### Pantalla Principal
-![Pantalla Principal](screensshots/screenshot_home.png)
+![Pantalla Principal](screenshots/screenshot_home.png)
 
 ### Pantalla de Búsqueda
 ![Pantalla de Búsqueda](screenshots/screenshot_search.png)
