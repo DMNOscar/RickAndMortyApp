@@ -84,7 +84,7 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 
 ## Autor
 
-Desarrollado por [Oscar Daniel Martinez Nuñez](https://github.com/DMNOscar).
+Desarrollado por [Oscar Martinez](https://github.com/DMNOscar).
 
 ## Licencia
 
