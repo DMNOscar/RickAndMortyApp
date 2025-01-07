@@ -1,4 +1,4 @@
-package com.flexicode.rickandmortyapp.view
+package com.flexicode.rickandmortyapp.view.home.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,6 +22,7 @@ class HomeViewModel @Inject constructor(private val networkDAO: NetworkDAO) : Vi
     var homeState by mutableStateOf(HomeState())
         private set
 
+    private var listCharacter: List<Character> = arrayListOf()
     init {
         getAllCharacter()
     }
@@ -36,14 +37,15 @@ class HomeViewModel @Inject constructor(private val networkDAO: NetworkDAO) : Vi
                     response: Response<CharactersListData>,
                 ) {
 
-                    if (response.code().equals(200)) {
-                        homeState = homeState.copy(
+                    homeState = if (response.code().equals(200)) {
+                        listCharacter = (response.body() as CharactersListData).results
+                        homeState.copy(
                             isLoad = false,
                             characterData = response.body() as CharactersListData
                         )
 
                     } else {
-                        homeState = homeState.copy(
+                        homeState.copy(
                             isLoad = false,
                             onFailureRequester = true,
                         )
@@ -87,4 +89,17 @@ class HomeViewModel @Inject constructor(private val networkDAO: NetworkDAO) : Vi
         }
 
     }
+
+    fun searchChareater(name: String){
+
+        if (name != ""){
+            homeState = homeState.copy(
+                characterData = CharactersListData(homeState.characterData.info, homeState.characterData.results.filter { it.name!!.contains(name, ignoreCase = true) })
+            )
+        }else{
+           homeState = homeState.copy(characterData =  CharactersListData(homeState.characterData.info, listCharacter))
+        }
+
+    }
+
 }
